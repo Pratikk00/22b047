@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://unpkg.com/tailwindcss@%^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="login.css">
+	<title>LOGIN</title>
+</head>
+
+<body>
+
+	<body>
+		<header>
+			<h2 class="icon"><ion-icon name="bulb"></ion-icon></h2>
+			<!-- <nav class="navigation ">
+				<a href="#"> HOME</a>
+				<a href="#">ABOUT</a>
+				<a href="#">SERVICES</a>
+				<a href="#">CONTACT</a>
+				<button class="btnLogin-popup">Login</button>
+			</nav> -->
+		</header>
+
+		<div class="wrapper">
+			<span class="icon-close"><ion-icon name="close"></ion-icon></span>
+			<div class="form-box login">
+				<h2>Login</h1>
+					<!-- <form class="needs-validation"> -->
+						<div class="inputbox">
+							<span class="icon"><ion-icon name="mail"></ion-icon></span>
+							<input type="email" required>
+							<label>Email</label>
+							
+						</div>
+
+						<div class="inputbox">
+							<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+							<input type="password" id="password"required>
+							<p id="message"></p>
+                            <label>password</label>
+							
+						</div>
+						<div class="remember-forgot">
+							<label><input type="checkbox">remember me </label>
+							<a href="#">forgot password?</a>
+						</div>
+						<button onclick="validatePassword()" class="btn"><a href="LOGIN.HTML">submit</a></button>
+						<!-- <div class="login-ragister"> -->
+						<!-- <p> Don't have an account?<a href="#" class="registerlink">register</a></p> -->
+					</form>
+
+			</div>
+			<div class="p1"></div>
+			<script>
+				function validatePassword() {
+				  var password = document.getElementById("password").value;
+			  
+				  // Check password length
+				  if (password.length < 8) {
+					alert("Password must be at least 8 characters long");
+					return;
+				  }
+			
+				  // Check for capital letter
+				  var hasCapitalLetter = false;
+				  for (var i = 0; i < password.length; i++) {
+					if (password[i] >= 'A' && password[i] <= 'Z') {
+					  hasCapitalLetter = true;
+					  break;
+					}
+				  }
+				  if (!hasCapitalLetter) {
+					alert("Password must contain at least one capital letter");
+					return;
+				  }
+			
+				  // Check for small letter
+				  var hasSmallLetter = false;
+				  for (var i = 0; i < password.length; i++) {
+					if (password[i] >= 'a' && password[i] <= 'z') {
+					  hasSmallLetter = true;
+					  break;
+					}
+				  }
+				  if (!hasSmallLetter) {
+					alert("Password must contain at least one small letter");
+					return;
+				  }
+			
+				  // Check for digit
+				  var hasDigit = false;
+				  for (var i = 0; i < password.length; i++) {
+					if (password[i] >= '0' && password[i] <= '9') {
+					  hasDigit = true;
+					  break;
+					}
+				  }
+				  if (!hasDigit) {
+					alert("Password must contain at least one digit");
+					return;
+				  }
+			
+				  // Check for special character
+				  var hasSpecialCharacter = false;
+				  var specialCharacters = "!@#$%^&*()-+";
+				  for (var i = 0; i < password.length; i++) {
+					if (specialCharacters.indexOf(password[i]) != -1) {
+					  hasSpecialCharacter = true;
+					  break;
+					}
+				}
+			}
+			   </script>
+	</body>
+
+
+</html>

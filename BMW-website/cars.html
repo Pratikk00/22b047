@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="car.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="d1">
+
+  </div>
+  <!--div>
+    <button onclick="loadDoc()" >car details</button>
+</div-->
+<h3>select the best car for you</h3>
+<center>
+  <input style="width: 700px;" type="search" name="" id="" placeholder="search here">
+  <button  class="btn btn-dark">search</button><br>
+  <span>bmw x</span> <span>bmw m</span> <span>bmw z</span>
+  <button class="btn btn-primary">show all cars details</button>
+</center>
+
+<center>
+  <div class="d1">
+
+  </div>
+</center>
+
+<div style="display: flex;margin-top:150px; flex-wrap:wrap; justify-content:center;">
+  <div class="box">
+    <img class="img" src="img/m1.png" alt=""> <br>
+    <div class="text">  
+           <h5>bmw m1</h5>
+           <h6>$100000</h6>
+         
+    </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/m2.png" alt=""> <br>
+  <div class="text">  
+    <h5>bmw m2</h5>
+    <h6>$120000</h6> 
+       
+  </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/m3.webp" alt=""> <br>
+  <div class="text">  
+    <h5>bmw m3</h5>
+    <h6>$115000</h6>
+       
+  </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/m4.png" alt=""> <br>
+  <div class="text">  
+    <h5>bmw m4</h5>
+    <h6>1300000</h6>
+  </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/x1.jpg" alt=""> <br>
+  <div class="text">  
+    <h5>bmw x1</h5>
+    <h6>$1500000</h6>
+       
+  </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/x2.jpeg" alt=""> <br>
+  <div class="text">  
+    <h5>bmw x2</h5>
+    <h6>$2000000</h6>
+  </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/x3.jpeg" alt=""> <br>
+  <div class="text">  
+    <h5>bmw x3</h5>
+    <h6>$2100000</h6>
+  </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/x4.png" alt=""> <br>
+  <div class="text">  
+    <h5>bmw x4</h5>
+           <h6>$2200000</h6>
+</div>
+
+
+</div>
+
+<div class="box">
+  <img class="img" src="img/z1.webp" alt=""> <br>
+  <div class="text">  
+    <h5>bmw z1</h5>
+    <h6>$3000000</h6>
+  </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/z2.webp" alt=""> <br>
+  <div class="text">  
+    <h5>bmw z2</h5>
+    <h6>
+      $4000000
+    </h6>
+       
+  </div>
+</div>
+
+<div class="box">
+  <img class="img" src="img/z3.webp" alt=""> <br>
+  <div class="text">  
+    <h5>bmw z3</h5>
+    <h6>$3500000  </h6>
+  </div>
+</div>
+
+</div>
+
+
+<script>
+  function show() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        const myobj = JSON.parse(this.responseText);
+        var output = "";
+        output += "<table border='1'>";
+        output += "<tr><th>Emp no</th><th>Emp name</th><th>salary</th><th>Designation</th></tr>";
+        for(let i in myobj){
+          output += "<tr><td>"+myobj[i].emp_no+"</td><td>"+myobj[i].emp_name+"</td><td>"+myobj[i].salary+"</td><td>"+myobj[i].designation+"</td></tr>";
+        }
+        output += "</table>";
+        document.getElementById('d1').innerHTML = output;
+      }
+    };
+    xhttp.open('GET', 'cardetails.json');
+    xhttp.send();
+  }
+</script>
+</body>
+</html>

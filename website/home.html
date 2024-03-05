@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    
+
+    <div class="bg">
+        <div class="main">
+
+            <div class="nav">
+                
+                <nav class="navigation ">
+                    <a href="#"> HOME</a>
+                    <a href="about.html">ABOUT</a>
+                    <a href="cart.html">CART</a>
+                    
+                    <a href="#footer">CONTACT</a>
+                    <button class="login"><a href="LOGIN.HTML">login</a></button>
+                </nav>
+                
+            </div>
+            <!-- <img src="img/Category_LED-lights.jpg" class="img1"> -->
+
+
+            <div class="box">
+                <h4'>Looking for LED lights</h4><br>
+                    <button class="btn"><a href="#here">explore
+                        </a></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="led" id="here">
+        <h1 style="text-align: center;">discover here</h1>
+        <div class="box-1">
+            <div class="light">
+                <img class="img2" src="img/r1.jpg"><h3>led plug in smart night lamp</h3>
+            </div>
+            <div class="light">
+                <img class="img2" src="img/r2.jpg"><h3>LED light angle 360 rotetes nights lamp</h3>
+            </div>
+            <div class="light">
+                <img class="img2" src="img/p3.jpg"><h3>LED bulb</h3>
+            </div>
+            <div class="light">
+                <img class="img2" src="img/p4.jpg"><h3>wire led siris</h3>
+
+            </div>
+            <div class="light">
+                <img class="img2" src="img/p1.jpg"><h3>home decoration light</h3>
+
+            </div>
+            <div class="light">
+                <img class="img2" src="img/p0.jpg"><h3>surfes light</h3>
+
+            </div>
+        </div>
+
+        
+<center>
+    <button onclick="productdetails()" >show product details</button>
+    <div id="d1">
+
+    </div>
+</center>
+    </div>
+    <!-- <div id="new"><h1 style="text-align: center;">  about us</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, vero deleniti alias quasi aliquam commodi, quisquam assumenda quia illum qui, ab numquam voluptate libero. Ipsum blanditiis id aspernatur eum ad? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti a, quia architecto natus nostrum voluptatem harum quidem, praesentium quae sunt qui. Rerum quaerat animi modi, officiis accusantium exercitationem sunt expedita natus dolorem nihil. Quisquam sed maxime cumque voluptatem quod eos.</p>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, vero deleniti alias quasi aliquam commodi, quisquam assumenda quia illum qui, ab numquam voluptate libero. Ipsum blanditiis id aspernatur eum ad?</p>
+    </div> -->
+    <div id="footer">
+        <div class="f">
+            <ul>
+                <li><b>COMPANY</b></li>
+                <li>contact</li>
+                <li>career</li>
+                <li>about us</li>
+                <li>leadership team</li>
+            </ul>
+        </div>
+        <div class="f">
+            <ul>
+                <li><b>PRODUCTS</b></li>
+                 <li>B2b</li>
+                 <li>B2c</li>
+                <li>Marketplace</li>
+                
+            </ul>
+        </div>
+        <div class="f">
+            <ul>
+                <li><b>SREVICES</b></li>
+              <li>Manegerd Ecommerce</li>
+                <li>Implementation</li>
+                <li>Integration</li>
+                <li>Team of use</li>
+            </ul>
+        </div>
+        <div class="f">
+            <ul>
+                <li><b>SOLUTION</b></li>
+              <li>Transactor</li>
+                <li>Havasay</li>
+                <li>AddTax</li>
+            </ul>
+        </div>
+       
+    </div>
+    <div  class="socialicon">
+        <a href=""><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-twitter"></i></a>
+          <a href=""><i class="fa-brands fa-google-plus"></i></a>
+          <a href=""><i class="fa-brands fa-youtube"></i></a>
+
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+    function productdetails() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            const myobj = JSON.parse(this.responseText);
+            var output = "";
+            output += "<table border='1'>";
+            output += "<tr><th>Emp no</th><th>Emp name</th><th>salary</th><th>Designation</th></tr>";
+            for(let i in myobj){
+              output += "<tr><td>"+myobj[i].emp_no+"</td><td>"+myobj[i].emp_name+"</td><td>"+myobj[i].salary+"</td><td>"+myobj[i].designation+"</td></tr>";
+            }
+            output += "</table>";
+            document.getElementById('d1').innerHTML = output;
+          }
+        };
+        xhttp.open('GET', 'details.json' , true);
+        xhttp.send();
+      }
+</script>
+</body>
+
+
+</html>
